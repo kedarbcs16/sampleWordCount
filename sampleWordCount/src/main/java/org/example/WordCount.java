@@ -32,7 +32,7 @@ public class WordCount {
         try (FileInputStream inputStream = new FileInputStream(inputWordListpath);
             Scanner sc = new Scanner(inputStream, "UTF-8")) {
             while (sc.hasNext()) {
-                words.add(sc.next());
+                words.add(sc.next().toLowerCase());
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -47,7 +47,7 @@ public class WordCount {
         try (FileInputStream inputStream = new FileInputStream(inputFilepath);
             Scanner sc = new Scanner(inputStream, "UTF-8")) {
             while (sc.hasNext()) {
-                String word = sc.next();
+                String word = sc.next().toLowerCase();
                 if (words.contains(word)) {
                     wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
                 }
